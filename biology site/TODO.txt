@@ -1,0 +1,11 @@
+  --design the Site
+  --design the database
+  --design the rolemodel
+  --design the class model
+  --to code the stuff above
+________________________________________________________________________________
+
+      DONE
+________________________________________________________________________________
+
+      revision =

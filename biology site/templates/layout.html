@@ -1,0 +1,26 @@
+<!doctype html>
+<title>Biology_site</title>
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+<div class=page>
+  <h1>Site for biology</h1>
+  <div>Тестовая версия сайта версии 0.01</div>
+  <div class=metanav>
+  {% if not session.logged_in %}
+    <a href="{{ url_for('login') }}">log in</a>
+  {% else %}
+    <table>
+      <tr>
+        <td><a href="{{ url_for('initdb_command') }}">init db</a></td>
+        <td></td><td></td>
+#        <td><a href="{{ url_for('impflow') }}">implicit flow</a></td> #da faq was that?
+        <td></td><td></td>
+        <td><a href="{{ url_for('logout') }}">log out</a></td>
+      </tr>
+    </table>
+  {% endif %}
+  </div>
+  {% for message in get_flashed_messages() %}
+    <div class=flash>{{ message }}</div>
+  {% endfor %}
+  {% block body %}{% endblock %}
+</div> #dis is some heresy

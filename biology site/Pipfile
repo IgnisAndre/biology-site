@@ -1,0 +1,22 @@
+[[source]]
+
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+name = "pypi"
+
+
+[packages]
+
+"httplib2" = "*"
+six = "*"
+gunicorn = "*"
+vk = "*"
+"oauth2client" = "*"
+uritemplate = "*"
+google-api-python-client = "*"
+Flask = "*"
+python-crontab = "*"
+
+
+[dev-packages]
+
