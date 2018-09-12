@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+{% block mqb %}
+<a href="{{ url_for('show_entries') }}">вернуться</a>
+
+  <table>
+    <tr>
+      <td>Номер блока</td>
+      <td>Текст вопроса</td>
+      <td>Текст правильного ответа</td>
+    </tr>
+
+  {% for qu in ques %}
+  <tr>
+      <td> {{ qu['block_id'] }}</td>
+      <td> {{ qu['question_text'] }}</td>
+      <td> {{ qu['c_answer_text'] }}</td>
+    </tr>
+
+  {% else %}
+  <p>Something went way to wrong</p>
+  {% endfor %}
+</table>
+
+{% endblock %}

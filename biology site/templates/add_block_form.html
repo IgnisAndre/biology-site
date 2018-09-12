@@ -1,0 +1,18 @@
+{%extends "layout.html"%}
+{% block abf%}
+{% if session.logged_in%}
+    <form action="" method="post" novalidate>
+      {{ form.hidden_tag() }}
+      <dl>
+        <dt>Название блока:
+          <p>
+          {{ form.blockname.label }} <br>
+          {{ form.blockname(size=32) }}
+          </p><p>
+          {{ form.submit() }}
+          </p>
+        </dt>
+      </dl>
+    </form>
+  {% endif %}
+ {%endblock%}

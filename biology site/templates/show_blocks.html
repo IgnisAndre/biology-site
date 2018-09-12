@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+{% block sbb %}
+<a href="{{ url_for('show_entries') }}">вернуться</a>
+  <table>
+    <tr>
+      <td>Номер блока</td>
+      <td>Название</td>
+      <td>Открыт для доступа?</td>
+    </tr>
+
+  {% for bl in blocks %}
+    <tr>
+      <td> {{ bl['block_id'] }}</td>
+      <td> {{ bl['block_name'] }}</td>
+      <td>
+        <form action="{{ url_for('change_block_state') }}" method = "post">
+            <input type="hidden" name="block_id" value= {{bl['block_id']}}>
+          {%if (bl['is_open'] == 1)%}
+          Открыт
+          <input type='submit' name='change_state' value = 0>
+          {%elif (bl['is_open'] == 0)%}
+          Закрыт
+          <input type='submit' name='change_state' value = 1>
+          {% else %}
+          <p>Something went way to wrong</p>
+          {% endif %}
+        </form>
+      </td>
+    </tr>
+
+  {% else %}
+  <p>Something went way to wrong</p>
+  {% endfor %}
+</table>
+
+{% endblock %}

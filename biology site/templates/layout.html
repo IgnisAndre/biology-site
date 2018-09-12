@@ -2,25 +2,66 @@
 <title>Biology_site</title>
 <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
 <div class=page>
-  <h1>Site for biology</h1>
-  <div>Тестовая версия сайта версии 0.01</div>
+  <h1>Учимся по методике четырёх коробок!</h1>
+  <div>Тестовая версия сайта версии 0.166 </div>
   <div class=metanav>
   {% if not session.logged_in %}
-    <a href="{{ url_for('login') }}">log in</a>
+  <a href="{{ url_for('login') }}">войти</a>
+  <a href="{{ url_for('register') }}">зарегистрироваться</a>
   {% else %}
     <table>
       <tr>
-        <td><a href="{{ url_for('initdb_command') }}">init db</a></td>
         <td></td><td></td>
-#        <td><a href="{{ url_for('impflow') }}">implicit flow</a></td> #da faq was that?
-        <td></td><td></td>
-        <td><a href="{{ url_for('logout') }}">log out</a></td>
+        <td><a href="{{ url_for('logout') }}">выйти</a></td>
       </tr>
     </table>
+  {% endif %}  {%if session.role_id == 2%}
+  <h5>Ученик!</h5>
+  {% elif session.role_id == 3%}
+  <h5>Учитель!</h5>
+  {% elif session.role_id == 4%}
+  <h5>Сверхучитель!</h5>
+  {%elif session.role_id == 5%}
+  <h5>МАСТЕР!</h5>
+  <table>
+    <tr>
+      <td></td>
+      <td><a href="{{ url_for('add_block') }}">добавить блок</a></td>
+      <td><a href="{{ url_for('manage_blocks') }}">управлять блоками</a></td>
+      <td><a href="{{ url_for('add_question') }}">добавить вопрос</a></td>
+      <td><a href="{{ url_for('manage_questions') }}">управлять вопросами</a></td>
+      </tr>
+  </table>
+  {%block abf%} {%endblock%}
+  {%block sbb%} {%endblock%}
+  {%block aqf%} {%endblock%}
+  {%block mqb%} {%endblock%}
+
+  {%else%}
+  <h5>Что ты такое?</h5>
   {% endif %}
+
   </div>
   {% for message in get_flashed_messages() %}
     <div class=flash>{{ message }}</div>
   {% endfor %}
   {% block body %}{% endblock %}
-</div> #dis is some heresy
+
+  </div>
+<span line-height : 1>
+<pre>
+
+
+
+
+
+
+                ..----.._    _
+              .' .--.    '-.(O)_
+  '-.__.-'''=:|  ,  _)_ \__ . c\'-..
+         ''------'---''---'-''
+
+                 Крыс
+              (кродётся)
+</pre>
+</span>

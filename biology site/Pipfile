@@ -15,6 +15,7 @@ vk = "*"
 uritemplate = "*"
 google-api-python-client = "*"
 Flask = "*"
+Flask-wtf = "*"
 python-crontab = "*"
 
 

@@ -1,11 +1,20 @@
   --design the Site
-  --design the database
-  --design the rolemodel
+  --
   --design the class model
   --to code the stuff above
+  --add registration
+  --
 ________________________________________________________________________________
 
       DONE
 ________________________________________________________________________________
 
       revision =
+++    design the database
+++    design the rolemodel
+
+"""
+for row in c.execute('SELECT * FROM stocks ORDER BY price'):
+    print(row)
+
+"""
